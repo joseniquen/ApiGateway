@@ -1,11 +1,6 @@
 server:
   port: 9998
 
-eureka:
-    client:
-        serviceUrl:
-            defaultZone: http://localhost:9999/eureka/
-        
 spring:
   application:
       name: api-gateway-service
@@ -30,7 +25,7 @@ spring:
       - id: banckaccount_microservice
         uri: lb://account-microservice
         predicates:
-          - Path=/account/**
+          - Path=/account-microservice/**
         filters: StripPrefix=2
       - id: movementaccount_microservice
         uri: lb://movement-microservice
@@ -47,3 +42,13 @@ spring:
         predicates:
           - Path=/representative-microservice/**
         filters: StripPrefix=2
+      - id: greeting_microservice
+        uri: lb://greeting-microservice
+        predicates:
+          - Path=/greeting-microservice/**
+        filters: StripPrefix=2
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:9999/eureka
