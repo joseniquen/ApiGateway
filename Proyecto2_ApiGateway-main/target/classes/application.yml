@@ -12,40 +12,30 @@ spring:
           enabled: true
 
     routes:
-      - id: customer_microservice
+      - id: customer-microservice
         uri: lb://customer-microservice
         predicates:
           - Path=/customer-microservice/**
         filters: StripPrefix=2
-      - id: banckcredit_microservice
+      - id: credit-_microservice
         uri: lb://credit-microservice
         predicates:
           - Path=/credit-microservice/**
         filters: StripPrefix=2
-      - id: banckaccount_microservice
+      - id: account-microservice
         uri: lb://account-microservice
         predicates:
           - Path=/account-microservice/**
         filters: StripPrefix=2
-      - id: movementaccount_microservice
+      - id: movement-microservice
         uri: lb://movement-microservice
         predicates:
           - Path=/movement-microservice/**
-        filters: StripPrefix=2
-      - id: movementcredit_microservice
-        uri: lb://movementcredit_microservice
-        predicates:
-          - Path=/movement/credit/**
         filters: StripPrefix=2
       - id: representative_microservice
         uri: lb://representative-microservice
         predicates:
           - Path=/representative-microservice/**
-        filters: StripPrefix=2
-      - id: greeting_microservice
-        uri: lb://greeting-microservice
-        predicates:
-          - Path=/greeting-microservice/**
         filters: StripPrefix=2
 
 eureka:
