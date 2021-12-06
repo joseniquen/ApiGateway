@@ -1,5 +1,5 @@
 server:
-  port: 9998
+  port: 9995
 
 spring:
   application:
@@ -17,7 +17,7 @@ spring:
         predicates:
           - Path=/customer-microservice/**
         filters: StripPrefix=2
-      - id: credit-_microservice
+      - id: credit-microservice
         uri: lb://credit-microservice
         predicates:
           - Path=/credit-microservice/**
@@ -41,4 +41,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:9999/eureka
+      defaultZone: http://eureka-server:8761/eureka
