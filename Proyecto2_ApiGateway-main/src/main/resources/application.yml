@@ -37,8 +37,18 @@ spring:
         predicates:
           - Path=/representative-microservice/**
         filters: StripPrefix=2
+      - id: wallet_microservice
+        uri: lb://wallet-microservice
+        predicates:
+          - Path=/wallet-microservice/**
+        filters: StripPrefix=2
+      - id: movement_wallet_microservice
+        uri: lb://movement-wallet-microservice
+        predicates:
+          - Path=/movemente-wallet-microservice/**
+        filters: StripPrefix=2
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
