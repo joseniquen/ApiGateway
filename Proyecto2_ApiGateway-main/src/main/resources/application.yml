@@ -47,8 +47,20 @@ spring:
         predicates:
           - Path=/movemente-wallet-microservice/**
         filters: StripPrefix=2
+      - id: monedero_microservice
+        uri: lb://monedero-microservice
+        predicates:
+          - Path=/monedero-microservice/**
+        filters: StripPrefix=2
+      - id: movement_monedero_microservice
+        uri: lb://movement-coin-microservice
+        predicates:
+          - Path=/movement-coin-microservice/**
+        filters: StripPrefix=2
+
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      #defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:9999/eureka
